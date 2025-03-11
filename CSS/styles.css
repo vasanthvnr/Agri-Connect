@@ -1,0 +1,201 @@
+html, body {
+  height: 100%; /* Ensures the body takes the full height of the viewport */
+  margin: 0; /* Removes default margin */
+}
+
+body {
+  display: flex;
+  flex-direction: column; /* Stacks header, main, and footer */
+  background-color: #F5DEB3; 
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+header, footer {
+  background-color: #98FB98; 
+  color: #2F4F2F; 
+  text-align: center;
+  padding: 20px 0;
+}
+
+main {
+  flex: 1; /* Allows main to take up remaining space */
+  padding: 20px;
+}
+
+footer {
+  position: static; /* Ensures footer stays at the bottom */
+  margin-top: auto; /* Pushes the footer to the bottom of the page */
+}
+body {
+  background-color: #F5DEB3; 
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+header, footer {
+  background-color: #98FB98; 
+  color: #2F4F2F; 
+  text-align: center;
+  padding: 20px 0;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #2F4F2F;
+  font-weight: bold;
+}
+nav ul li a:hover {
+  color: #006400; 
+}
+main {
+  padding: 20px;
+}
+#farm-products, #cart-products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+#farm-products div, #cart-products div {
+  background-color: #FFF8DC; 
+  border: 2px solid #8B4513; 
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  width: calc(30% - 40px); 
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+#farm-products img, #cart-products img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+#farm-products h3, #cart-products h3 {
+  color: #8B4513;
+  text-align: center;
+}
+#farm-products p, #cart-products p {
+  text-align: center;
+  font-weight: bold;
+}
+#cart-products button, #buy-now {
+  display: block;
+  width: 100%;
+  background-color: #98FB98; 
+  color: #2F4F2F; 
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+#cart-products button:hover, #buy-now:hover {
+  background-color: #2F4F2F; 
+  color: #FFF;
+}
+#total-amount {
+  background-color: #FFFFFF;
+  border: 2px solid #8B4513;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+#total-amount h2 {
+  margin: 0;
+  color: #8B4513; 
+}
+form {
+  background-color: #FFFFFF; 
+  border: 2px solid #8B4513; 
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+form input[type="text"],
+form input[type="number"],
+form input[type="file"] {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #8B4513;
+  border-radius: 4px;
+}
+form button {
+  background-color: #98FB98; 
+  color: #2F4F2F; 
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+form button:hover {
+  background-color: #2F4F2F; 
+  color: #FFF;
+}
+.cancel-button {
+  background-color: #FF6347;
+  color: #FFF;
+}
+.cancel-button:hover {
+  background-color: #5f585d; 
+}
+.product {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+img {
+  max-width: 100px;
+  margin-bottom: 10px;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.decrease-button, .increase-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.cancel-button {
+  background-color: #dc3545;
+  color: white;
+  margin-top: 10px;
+}
+
+.total-amount {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 20px;
+}

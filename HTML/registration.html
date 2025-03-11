@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Page</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #8B4513;
+      color: #555;
+    }
+
+    .flex-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+    }
+
+    .registration-container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      width: 360px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      margin-bottom: 10px;
+      border-radius: 6px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    button {
+      margin-top: 20px;
+    }
+
+    footer {
+      background-color: #394240;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="text-center py-2 bg-dark text-white">
+      <h1>Registration</h1>
+    </div>
+  </header>
+
+  <div class="flex-container">
+    <div class="registration-container">
+      <h2>Register</h2>
+      <form id="registrationForm">
+        <div class="form-group">
+          <label for="username"><i class="bi bi-person-circle"></i> Username</label>
+          <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+          <label for="email"><i class="bi bi-envelope-fill"></i> Email</label>
+          <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <label for="password"><i class="bi bi-lock-fill"></i> Password</label>
+          <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+          <label for="gender"><i class="bi bi-gender-ambiguous"></i> Gender</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="male" value="Male" required>
+            <label class="form-check-label" for="male">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="female" value="Female" required>
+            <label class="form-check-label" for="female">Female</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone"><i class="bi bi-telephone-fill"></i> Phone Number</label>
+          <input
+            type="tel"
+            class="form-control"
+            name="phone"
+            id="phone"
+            placeholder="Phone Number (10 digits)"
+            pattern="[0-9]{10}"
+            title="Enter a valid 10-digit phone number"
+            required
+          >
+        </div>
+        
+        <button type="submit" class="btn btn-success btn-block">Register</button><br>
+
+        
+          Already have an Account <a href="login_page.html">Sign in</a>
+        
+      </form>
+    </div>
+  </div>
+
+
+  <footer>
+    <p>&copy; 2024 Agri-connect</p>
+  </footer>
+
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Get form data
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const gender = document.querySelector('input[name="gender"]:checked').value;
+      const phone = document.getElementById("phone").value.trim();
+      
+
+    
+
+      // Validate phone number
+      const phoneRegex = /^[0-9]{10}$/;
+      if (!phoneRegex.test(phone)) {
+        alert("Invalid phone number. Please enter exactly 10 digits.");
+        return;
+      }
+
+      // Check for existing user
+      const existingUser = localStorage.getItem(email);
+      if (existingUser) {
+        alert("User with this email already exists! Please log in.");
+        return;
+      }
+
+      // Create user object
+      const user = {
+        username,
+        email,
+        password,
+        gender,
+        phone
+      };
+
+      // Save user data in local storage
+      localStorage.setItem(email, JSON.stringify(user));
+
+      alert("Registration successful! User data has been saved.");
+
+      // Redirect to login page
+      window.location.href = "login_page.html"; 
+    });
+  </script>
+
+</body>
+</html>
